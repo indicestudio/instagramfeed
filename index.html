@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Instagra feed - indicestudio</title>
+</head>
+<body>
+<h1>Check console</h1>
+
+<!-- Jquery CDN -->
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+
+
+
+<script>
+
+var userId = '3860040881';
+var appToken = '3860040881.a12c878.26faa4846d984563a59c9b23aa846447';
+
+$.ajax('https://api.instagram.com/v1/users/' + userId + '/media/recent/?access_token=' + appToken, function(data){
+  console.log(data);
+});
+
+
+
+</script>
+</body>
+</html>
