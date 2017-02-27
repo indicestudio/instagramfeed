@@ -20,7 +20,7 @@
 var userId = '3860040881';
 var appToken = '3860040881.a12c878.26faa4846d984563a59c9b23aa846447';
 
-$.ajax('https://api.instagram.com/v1/users/' + userId + '/media/recent/?access_token=' + appToken, function(data){
+$.getJSON('https://api.instagram.com/v1/users/' + userId + '/media/recent/?access_token=' + appToken + 'callback=?', function(data){
   console.log(data);
 });
 
