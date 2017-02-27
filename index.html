@@ -20,11 +20,21 @@
 var userId = '3860040881';
 var appToken = '3860040881.a12c878.26faa4846d984563a59c9b23aa846447';
 
-$.getJSON('https://api.instagram.com/v1/users/' + userId + '/media/recent/?access_token=' + appToken + 'callback=?', function(data){
-  console.log(data);
+$.getJSON({
+    url: 'https://api.instagram.com/v1/users/' + userId + '/media/recent/?access_token=' + appToken,
+    type: 'GET',
+    crossDomain: true,
+    dataType: 'jsonp',
+    success: function(e){
+      var images = e.data[0].images.standard_resolution.url;
+      var post = e.data;
+      post.forEach(function(el, index, array) {
+        var imgURL = el.images.standard_resolution.url;
+        $('body').append('<img src=' + imgURL + '>')
+      });
+      
+    }
 });
-
-
 
 </script>
 </body>
